@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Reflection.Metadata;
+using System.Xml.Serialization;
 
 namespace Advanced01
 {
@@ -10,7 +11,7 @@ namespace Advanced01
         //    a = b;
         //    b = temp;
         //}
-        static T FindMax <T>(T[]values) where T: IComparable<T>
+        static T FindMax<T>(T[] values) where T : IComparable<T>
         {
             T max = values[0];
 
@@ -22,6 +23,12 @@ namespace Advanced01
                 }
             }
             return max;
+        }
+
+        // Q7
+        static void Print<T>(T value) where T : struct
+        {
+            Console.WriteLine(value);
         }
         static void Main(string[] args)
         {
@@ -73,7 +80,22 @@ namespace Advanced01
 
             #endregion
 
+            #region Q7: What is the 'struct' constraint? Write an example.
+            //The struct constraint restricts a generic type parameter to value types that are non  nullable
+
+            //Print(10);
+            //Print(5.5);
+            //Print(true);
+            #endregion
+
+            #region 
+
+
+            #endregion
+
+
         }
 
-
     }
+
+}
