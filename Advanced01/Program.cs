@@ -71,8 +71,8 @@ namespace Advanced01
             // is an interface that uses type parameters, allowing it to work with different data types.
             // It defines a contract for classes that implement it, specifying methods and properties that must be provided.
 
-
             #endregion
+
         }
 
 
