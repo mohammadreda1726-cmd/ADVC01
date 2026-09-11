@@ -156,15 +156,24 @@ namespace Advanced01
 
             #region  Q13: What does the 'default' keyword do in generics ?  
             //The default keyword in C# generics is used to obtain the default value of a type parameter.
-           
+
             //int number = GetDefault<int>();
             //string text = GetDefault<string>();
 
             //Console.WriteLine(number); // 0
             //Console.WriteLine(text);   // null
+            #endregion
+
+            #region Q14: Write a SafeList<T> that returns default when the index isinvalid.
+            //SafeList<int> numbers = new SafeList<int>();
+            //numbers.Add(10);
+            //numbers.Add(20);
+            //numbers.Add(30);
+
+            //Console.WriteLine(numbers.Get(1));  // 20
+            //Console.WriteLine(numbers.Get(10)); // 0
+
             //#endregion
         }
-
     }
-
 }
