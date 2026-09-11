@@ -1,4 +1,7 @@
-﻿using System.Reflection.Metadata;
+﻿using System.Buffers;
+using System.Data;
+using System.Data.Common;
+using System.Reflection.Metadata;
 using System.Xml.Serialization;
 
 namespace Advanced01
@@ -26,10 +29,30 @@ namespace Advanced01
         }
 
         // Q7
-        static void Print<T>(T value) where T : struct
-        {
-            Console.WriteLine(value);
-        }
+        //static void Print<T>(T value) where T : struct    // value type
+        //{
+        //    Console.WriteLine(value);
+        //}
+
+        // Q8
+        //static void Print<T>(T value) where T : class     // reference type
+        //{
+        //    Console.WriteLine(value);
+        //}
+
+        //Q10
+        //class Student : IPrintabel
+        //{
+        //    public void Print()
+        //    {
+        //        Console.WriteLine("Student information");
+        //    }
+        //}
+        //static void PrintItem<T>(T item) where T : IPrintabel
+        //{
+        //    item.Print();
+        //}
+
         static void Main(string[] args)
         {
             #region Q1: What is a generic class? Why use generics?
@@ -88,10 +111,28 @@ namespace Advanced01
             //Print(true);
             #endregion
 
-            #region 
+            #region Q8: What is the 'class' constraint? Write an example
+
+            //The class constraint restricts a generic type parameter to reference types
+            // Print("Hello");
+            #endregion
+
+            #region Q9: What is the 'new()' constraint? Write an example.
+            // The new() constraint requires a generic type to have a public parameterless constructor,
+            // allowing aninstance of that type to be created using new T().
 
 
             #endregion
+
+            #region Q10: What is the interface constraint? Write an example.
+            // An interface constraint restricts a generic type parameter to types that implement a specific interface.
+            //لازم يكون Class أو Struct بيعمل Implement لـ Interface معين .
+            //Student student = new Student();
+
+            //PrintItem(student);
+
+
+            #region Q11: What is the base class constraint? Write an example
 
 
         }
