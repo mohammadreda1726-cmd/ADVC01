@@ -1,4 +1,5 @@
-﻿using System.Buffers;
+﻿using Microsoft.VisualBasic;
+using System.Buffers;
 using System.Data;
 using System.Data.Common;
 using System.Reflection.Metadata;
@@ -52,6 +53,12 @@ namespace Advanced01
         //{
         //    item.Print();
         //}
+
+        //Q12
+        static T GetDefault<T>()
+        {
+            return default(T);
+        }
 
         static void Main(string[] args)
         {
@@ -127,14 +134,35 @@ namespace Advanced01
             #region Q10: What is the interface constraint? Write an example.
             // An interface constraint restricts a generic type parameter to types that implement a specific interface.
             //لازم يكون Class أو Struct بيعمل Implement لـ Interface معين .
+
             //Student student = new Student();
 
             //PrintItem(student);
-
+            #endregion
 
             #region Q11: What is the base class constraint? Write an example
+            //The base class constraint in C# generics where T : BaseClass
+            //means that the generic type T must inherit from or be the specified base class.
 
+            //Test<Dog> test = new Test<Dog>();
+            //test.Show(new Dog());
 
+            #endregion
+
+            #region Q12: How do you apply multiple constraints? Write an example.  
+            //You can apply multiple constraints to a generic type by writing them after where T, separated by commas.
+
+            #endregion
+
+            #region  Q13: What does the 'default' keyword do in generics ?  
+            //The default keyword in C# generics is used to obtain the default value of a type parameter.
+           
+            //int number = GetDefault<int>();
+            //string text = GetDefault<string>();
+
+            //Console.WriteLine(number); // 0
+            //Console.WriteLine(text);   // null
+            //#endregion
         }
 
     }
