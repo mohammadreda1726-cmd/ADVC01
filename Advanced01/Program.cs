@@ -1,12 +1,19 @@
 ﻿using Microsoft.VisualBasic;
 using System.Buffers;
+using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
 using System.Reflection.Metadata;
+using System.Runtime.Intrinsics.X86;
 using System.Xml.Serialization;
 
 namespace Advanced01
 {
+
+
+    // ** بعتذر علي التاخير يا هندسه  ** 
+
+
     class Program
     {
         //static void Swap<T>(ref T a, ref T b)
@@ -15,19 +22,19 @@ namespace Advanced01
         //    a = b;
         //    b = temp;
         //}
-        static T FindMax<T>(T[] values) where T : IComparable<T>
-        {
-            T max = values[0];
+        //static T FindMax<T>(T[] values) where T : IComparable<T>
+        //{
+        //    T max = values[0];
 
-            foreach (T value in values)
-            {
-                if (value.CompareTo(max) > 0)
-                {
-                    max = value;
-                }
-            }
-            return max;
-        }
+        //    foreach (T value in values)
+        //    {
+        //        if (value.CompareTo(max) > 0)
+        //        {
+        //            max = value;
+        //        }
+        //    }
+        //    return max;
+        //}
 
         // Q7
         //static void Print<T>(T value) where T : struct    // value type
@@ -55,10 +62,10 @@ namespace Advanced01
         //}
 
         //Q12
-        static T GetDefault<T>()
-        {
-            return default(T);
-        }
+        //static T GetDefault<T>()
+        //{
+        //    return default(T);
+        //}
 
         static void Main(string[] args)
         {
@@ -173,7 +180,58 @@ namespace Advanced01
             //Console.WriteLine(numbers.Get(1));  // 20
             //Console.WriteLine(numbers.Get(10)); // 0
 
-            //#endregion
+            #endregion
+
+            #region Q15: What is covariance? Explain the 'out' keyword.
+            //Covariance allows you to use a more derived type where a base type is expected.
+            //In generics, covariance is represented by the out keyword.
+
+            //IProducer<Dog> dogs = new DogProducer();
+
+            //IProducer<Animal> animals = dogs;
+            #endregion
+
+            #region Q16: What is contravariance? Explain the 'in' keyword
+            //Contravariance allows you to use a more generic (less derived) type where a more specific type is expected.
+            //In generics, contravariance is represented by the in keyword.
+
+            //IConsumer<Animal> animals = new AnimalConsumer();
+
+            //IConsumer<Dog> dogs = animals;
+            #endregion
+
+            #region Q17: What is the difference between covariance andcontravariance ?
+            //Covariance is Uses out keyword, allows a more derived type to be used where a base type is expected.
+            //returns a more specific type than originally specified, allowing for flexibility in method return  valuse types.
+
+            //Contravariance is Uses in keyword, allows a more generic type to be used where a more specific type is expected.
+            //accepts a more general type than originally specified, allowing for flexibility in method parameter types.
+
+            #endregion
+
+            #region Q18: How do static members work in generic types?
+            //In a generic class, static members are separate for each type used with the generic class.
+            //This means that if you create instances of a generic class with different type parameters,
+            //each type will have its own static members.
+
+            //the static member belongs to the constructed generic type, not to the generic class as one shared variable.
+            #endregion
+
+            #region Q19: How can you inherit from a generic class?
+            //You can inherit from a generic class by specifying the type argument when creating the derived class.
+            //IntBox box = new IntBox();
+
+            //box.Value = 120;
+            //box.Show();
+
+            #endregion
+
+            #region Q20: Complete Exercise - Create a generic Cache<TKey,TValue > with Add, Get, Remove, Contains, and expiration support.
+
+
+            #endregion
+
+            //Thank you for your attention.
         }
     }
 }
